@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
-import DisplayMovies from "./DisplayMovies";
 
 const AddMovie = () => {
     const [title, setTitle] = useState("");
     const [year, setYear] = useState("");
-    const [movies, setMovies] = useState({});
+    const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
 
@@ -13,9 +12,19 @@ const AddMovie = () => {
         e.preventDefault();
         const movieApi = await axios(`http://www.omdbapi.com/?apikey=a8c513b9&t=${title}&y=${year}`)
         setMovies(movieApi.data)
-        setLoading(false)
-
     }
+
+    useEffect(() => {
+        const postAxios = async() => {
+
+            const movieApi = await axios.post(`https://chibre-b5ac2.firebaseio.com/`, {movies})
+
+        }
+        postAxios();
+    })
+
+
+
 
     return (
         <>
@@ -51,7 +60,6 @@ const AddMovie = () => {
         </div>
     </div>
 }
-            <DisplayMovies chibre={movies}/>
 </>
     );
 }
