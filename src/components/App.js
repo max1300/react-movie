@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import AddMovie from "./Movie/Add";
 import DisplayMovies from "./Movie/Display";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ContactForm from "../ContactForm";
+import ContactForm from "./Contact/Form";
 import Home from "./Home";
 
 const App = () => {

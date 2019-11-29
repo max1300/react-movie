@@ -1,7 +1,7 @@
 import React from "react";
 import useForm from 'react-hook-form';
 
-const ContactForm = () => {
+const Form = () => {
     const {register, handleSubmit, errors} = useForm({
         mode:"onBlur"
     });
@@ -47,4 +47,4 @@ const ContactForm = () => {
         </div>
     );
 }
-export default ContactForm;
+export default Form;
