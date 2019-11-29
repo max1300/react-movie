@@ -15,10 +15,10 @@ const App = () => {
           <Router>
               <div>
                   <Switch>
-                      <Route exact path="/" component={FirstPage} />
                       <Route path="/contact" component={ContactForm} />
                       <Route path="/addmovie" component={AddMovie} />
                       <Route path="/movies" component={DisplayMovies} />
+                      <Route exact path="/" component={FirstPage} />
                   </Switch>
               </div>
           </Router>
