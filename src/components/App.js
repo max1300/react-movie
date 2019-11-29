@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import Navbar from "./Navbar";
 import AddMovie from "./Movie/Add";
-import DisplayMovies from "../DisplayMovies";
+import DisplayMovies from "./Movie/Display";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ContactForm from "../ContactForm";
 import Home from "./Home";
