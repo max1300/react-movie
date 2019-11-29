@@ -14,8 +14,8 @@ const Movies = (props) => {
 
     useEffect(() => {
         const axiosData = async () => {
-            const movieApi = await Axios(`${API_URL}/?apikey=${process.env.REACT_APP_API_KEY}&t=${title}&y=${year}`);
-            console.log(movieApi.data);
+            const movieApi = await Axios(`http://www.omdbapi.com/?apikey=a8c513b9&t=${title}&y=${year}`);
+            console.log(movieApi.data)
             setItems(movieApi.data);
             setLoading(false);
         }

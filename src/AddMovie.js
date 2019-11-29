@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
-const AddMovie = (props) => {
+const AddMovie = () => {
     const [title, setTitle] = useState("");
     const [year, setYear] = useState("");
-    const [score, setScore] = useState("");
+    const [score, setScore] = useState();
 
     return (
         <div className="uk-container">
@@ -23,12 +23,7 @@ const AddMovie = (props) => {
                                 </div>
                             </div>
                             <div className="uk-margin">
-                                <div className="uk-inline uk-width-1-1">
-                                    <input name="score" className="uk-input" placeholder="Your score..." onChange={score => setScore(score)}/>
-                                </div>
-                            </div>
-                            <div className="uk-margin">
-                                <a href={`/movies/${title}&&${year}`} className="uk-button uk-button-primary uk-button-large uk-width-1-1">Soumettre la recherche</a>
+                                <a href={`/movies/${title}&${year}`} className="uk-button uk-button-primary uk-button-large uk-width-1-1">Soumettre la recherche</a>
                             </div>
                         </form>
                     </div>
