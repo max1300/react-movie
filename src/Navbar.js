@@ -15,7 +15,7 @@ const Navbar = () => {
                 <div className="uk-navbar-right">
 
                     <ul className="uk-navbar-nav" style={{listStyle:"none"}}>
-                        <li><a href="/movies/:title&&:year" style={{color:"white"}}>Voir les films</a></li>
+                        <li><a href="/movies" style={{color:"white"}}>Voir les films</a></li>
                         <li><a href="/addmovie" style={{color:"white"}}>Ajouter un film</a></li>
                         <li><a href="/contact" style={{color:"white"}}>Contact</a></li>
                     </ul>
