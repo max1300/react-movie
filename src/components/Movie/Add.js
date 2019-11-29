@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import DisplayMovies from "./DisplayMovies";
+import DisplayMovies from "../../DisplayMovies";
 
-const AddMovie = () => {
+const Add = () => {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [movies, setMovies] = useState({});
@@ -11,7 +11,7 @@ const AddMovie = () => {
   const axiosData = async e => {
     e.preventDefault();
     const movieApi = await axios(
-      `http://www.omdbapi.com/?apikey=a8c513b9&t=${title}&y=${year}`
+      `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&t=${title}&y=${year}`
     );
     setMovies(movieApi.data);
     setLoading(false);
@@ -64,4 +64,4 @@ const AddMovie = () => {
     </>
   );
 };
-export default AddMovie;
+export default Add;
