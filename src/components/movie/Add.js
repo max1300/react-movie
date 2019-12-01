@@ -1,30 +1,24 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
+import {getMovie} from "../../services/Omdb";
 
-const AddMovie = () => {
+const Add = () => {
     const [title, setTitle] = useState("");
     const [year, setYear] = useState("");
     const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
 
-    const axiosData = async(e) => {
+    const addMovie = async(e) => {
         e.preventDefault();
-        const movieApi = await axios(`http://www.omdbapi.com/?apikey=&t=${title}&y=${year}`)
-        setMovies(movieApi.data)
-    }
-
-    useEffect(() => {
-        const postAxios = async() => {
-
-            const movieApi = await axios.post(`https://chibre-b5ac2.firebaseio.com/`, {movies})
-
+        setLoading(true);
+        
+        try {
+            const data = await getMovie(title, year)
+            setLoading(false);
+        }catch (e) {
+            console.log('erreur');
         }
-        postAxios();
-    })
-
-
-
+    }
 
     return (
         <>
@@ -50,8 +44,7 @@ const AddMovie = () => {
                         </div>
                         <div className="uk-margin">
                             <button className="uk-button uk-button-primary uk-button-large uk-width-1-1"
-                                    onClick={axiosData}>Soumettre la recherche</button>
-
+                                    onClick={addMovie}>Soumettre la recherche</button>
                         </div>
                     </form>
 
@@ -63,4 +56,4 @@ const AddMovie = () => {
 </>
     );
 }
-export default AddMovie;
+export default Add;
