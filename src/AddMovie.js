@@ -10,7 +10,7 @@ const AddMovie = () => {
 
     const axiosData = async(e) => {
         e.preventDefault();
-        const movieApi = await axios(`http://www.omdbapi.com/?apikey=a8c513b9&t=${title}&y=${year}`)
+        const movieApi = await axios(`http://www.omdbapi.com/?apikey=&t=${title}&y=${year}`)
         setMovies(movieApi.data)
     }
 
